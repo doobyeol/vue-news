@@ -9,10 +9,8 @@
 import ToolBar from "./components/ToolBar.vue";
 
 /* eslint-disable */
-export default {
+export default  {
   components: { ToolBar },
-  data() {},
-  methods: {},
   compoents: {
     ToolBar,
   },
