@@ -1,22 +1,24 @@
 <template>
   <div>
-    <div v-for="(news, idx) in news" :key="idx">{{ news.title }}</div>
+    <p v-for="(news, idx) in fetchedNews" :key="idx">
+      <a :href="news.url">{{ news.title }}</a>
+      <small>{{ news.time_ago }} by {{ news.user }}</small>
+    </p>
   </div>
 </template>
 
 <script>
-import { fetchNewsList } from "../api/index";
+import { mapGetters } from "vuex";
 
 export default {
+  computed: {
+    ...mapGetters(["fetchedNews"]),
+  },
   data() {
-    return {
-      news: [],
-    };
+    return {};
   },
   created() {
-    fetchNewsList()
-      .then((response) => (this.news = response.data))
-      .catch((error) => console.log(error));
+    this.$store.dispatch("FETCH_NEWS");
   },
 };
 </script>
