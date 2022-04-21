@@ -7,7 +7,12 @@
 </template>
 
 <script>
+// import NewsView from "@/views/NewsView.vue";
+
 export default {
+  components: {
+    // NewsView,
+  },
   computed: {
     userInfo() {
       return this.$store.state.user;
